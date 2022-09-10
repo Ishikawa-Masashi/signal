@@ -1,0 +1,35 @@
+{
+  "name": "@ishikawa-masashi/signal",
+  "version": "0.0.1",
+  "main": "./dist/index.mjs",
+  "types": "./types/index.d.ts",
+  "scripts": {
+    "clean": "rimraf dist types",
+    "watch": "tsc -w | vite build --watch",
+    "build": "yarn clean && tsc && vite build",
+    "build:debug": "node --inspect-brk=5858 ./node_modules/.bin/vite build",
+    "publish": "npm publish --access public",
+    "lint": "eslint --fix \"src/**/*.{js,ts}\"",
+    "test": "yarn vitest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^18.7.16",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.8.3",
+    "vite": "^3.1.0",
+    "vitest": "^0.23.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ishikawa-masashi/nebula"
+  },
+  "files": [
+    "*"
+  ]
+}
