@@ -1,17 +1,16 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const signal = <EventmitHandler extends (...args: any[]) => any>() => {
-  const set = new Set<EventmitHandler>();
+export const signal = <EventHandler extends (...args: any[]) => any>() => {
+  const set = new Set<EventHandler>();
   return {
-    connect(handler: EventmitHandler) {
+    connect(handler: EventHandler) {
       set.add(handler);
     },
-    disconnect(handler: EventmitHandler) {
+    disconnect(handler: EventHandler) {
       set.delete(handler);
     },
     disconnectAll() {
       set.clear();
     },
-    emit(...args: Parameters<EventmitHandler>) {
+    emit(...args: Parameters<EventHandler>) {
       set.forEach((handler) => handler(...args));
     },
   };
